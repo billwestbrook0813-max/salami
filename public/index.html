@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Salami Slider — Sports Bar Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="hero hero--tight">
+      <div class="hero__glow"></div>
+      <div class="hero__inner">
+        <div class="brand">
+          <img src="./Salami Slider Pizza Logo.png" alt="Salami Slider Logo" class="logo logo--main">
+          <h1 class="brand__title">SALAMI SLIDER</h1>
+          <div class="brand__tag">LOUD • BOLD • 2000s SPORTS BAR</div>
+        </div>
+
+        <div class="hero__totals">
+          <img src="./Retro Juice Junkies Logo Design.png" alt="Juice Junkies Logo" class="logo logo--sub">
+          <div class="total total--headline">
+            <div class="total__label">Projected Total (Consensus)</div>
+            <div class="total__value" id="projectedRuns">--</div>
+            <div class="total__band">
+              <span id="bandLow">--</span>
+              <div class="band__bar"><div class="band__fill" id="bandFill"></div></div>
+              <span id="bandHigh">--</span>
+            </div>
+            <div class="total__sub" id="gamesUsed">-- games used</div>
+          </div>
+
+          <div class="total total--finish">
+            <div class="total__label">Projected Finish (Live)</div>
+            <div class="total__value" id="projectedFinish">--</div>
+            <div class="total__sub">
+              <span>Actual Today: <b id="actualRunsToday">--</b></span>
+              <span class="dot">•</span>
+              <span>Expected Remaining: <b id="remainingExpected">--</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticker" id="ticker">
+        <div class="ticker__inner" id="tickerInner"></div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="scoreboard" id="scoreboard">
+        <div class="section__head">
+          <h2><span class="flame">🔥</span> LIVE & TODAY'S GAMES</h2>
+          <div class="section__meta">
+            <span id="datePT">--</span>
+            <span class="dot">•</span>
+            <span id="lastUpdate">--</span>
+          </div>
+        </div>
+        <div class="grid" id="grid"></div>
+        <div class="empty" id="empty" hidden>Data not available yet. Waiting for API…</div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__logo">Powered by Odds API + MLB Stats API</div>
+      <div class="footer__small">Sports-bar edition UI • mobile-first • neon & chrome vibes</div>
+    </footer>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

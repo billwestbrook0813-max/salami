@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: salami-slider
+    env: node
+    plan: free            # change to 'starter' or higher if you need more resources
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: ODDS_API_KEY
+        sync: false       # set the value in Render dashboard (kept secret)

@@ -30,9 +30,7 @@ body{
   text-shadow: 0 3px 0 rgba(0,0,0,0.35), 0 10px 18px rgba(0,0,0,0.6);
 }
 .brand__tag{font-size:12px; opacity:0.8; letter-spacing:2px}
-.logo{max-width:200px; width:70%; height:auto; display:block}
-.logo--main{margin-bottom:8px}
-.logo--sub{margin:0 0 10px auto; max-width:180px}
+.logo{max-width:200px; width:70%; height:auto; display:block; margin-bottom:8px}
 
 .hero__totals{display:grid; gap:10px}
 .total{

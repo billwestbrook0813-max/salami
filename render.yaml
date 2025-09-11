@@ -2,9 +2,12 @@ services:
   - type: web
     name: salami-slider
     env: node
-    plan: free            # change to 'starter' or higher if you need more resources
+    plan: free                   # change to starter/standard if you need more power
     buildCommand: "npm install"
     startCommand: "npm start"
+    healthCheckPath: /health     # uses the /health route already in server.js
+    autoDeploy: true
+
     envVars:
       - key: ODDS_API_KEY
-        sync: false       # set the value in Render dashboard (kept secret)
+        sync: false              # set the value securely in Render dashboard

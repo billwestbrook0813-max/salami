@@ -1,5 +1,90 @@
-<svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="40" cy="50" r="30" fill="#FFA723" />
-  <path d="M40 20 L50 5 A15 15 0 0 1 65 20 Z" fill="#5FB55E" />
-  <text x="90" y="62" font-family="sans-serif" font-size="32" fill="#333" font-weight="bold">Juice Junkies</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 420">
+  <defs>
+    <!-- Chrome gradient for fill -->
+    <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#f6f9ff"/>
+      <stop offset="22%" stop-color="#dfe6f2"/>
+      <stop offset="45%" stop-color="#b6c2d6"/>
+      <stop offset="60%" stop-color="#7d8899"/>
+      <stop offset="78%" stop-color="#cfd7e6"/>
+      <stop offset="100%" stop-color="#eef3ff"/>
+    </linearGradient>
+
+    <!-- Neon stroke gradient -->
+    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#FF0066"/>
+    </linearGradient>
+
+    <!-- Outer glow -->
+    <filter id="outerGlow" x="-30%" y="-50%" width="160%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 1
+                0 0 0 0 1
+                0 0 0 0.55 0" result="cmy"/>
+      <feMerge>
+        <feMergeNode in="cmy"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Inner glow/highlight -->
+    <filter id="innerGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feComposite in="SourceGraphic" in2="b" operator="arithmetic" k2="1" k3="-0.7"/>
+    </filter>
+
+    <!-- Soft drop shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feOffset dy="6" dx="0" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="8" result="blur2"/>
+      <feColorMatrix in="blur2" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.45 0" result="sh"/>
+      <feMerge>
+        <feMergeNode in="sh"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Stroke outline as reusable style -->
+    <style><![CDATA[
+      .plate { fill: none; stroke: url(#neon); stroke-width: 10; filter: url(#outerGlow); }
+      .word { font: 900 220px/1 'Bebas Neue', 'Anton', Impact, 'Arial Black', sans-serif;
+              fill: url(#chrome); paint-order: stroke; stroke: url(#neon); stroke-width: 10;
+              letter-spacing: 10px; filter: url(#innerGlow); }
+      .sub  { font: 600 56px/1 'Oswald', 'Bebas Neue', Impact, sans-serif; letter-spacing: 6px;
+              fill: #e8edf6; opacity: .9; }
+      .badge { font: 900 120px/1 'Bebas Neue', 'Anton', Impact, sans-serif; }
+    ]]></style>
+  </defs>
+
+  <!-- Wordmark group -->
+  <g transform="translate(40,285)">
+    <!-- Subtle underline plate -->
+    <path class="plate" d="M10,90 H1510" />
+    <!-- Main wordmark -->
+    <text class="word" y="0">JUICE&nbsp;JUNKIES</text>
+    <!-- Tagline (optional; delete if not needed) -->
+    <text class="sub" y="120">SPORTS&nbsp;BAR&nbsp;EDITION</text>
+  </g>
+
+  <!-- Circular JJ badge at left (can be used standalone if desired) -->
+  <g transform="translate(40,40)">
+    <g filter="url(#shadow)">
+      <circle cx="140" cy="140" r="118" fill="none" stroke="url(#neon)" stroke-width="12" filter="url(#outerGlow)"/>
+      <circle cx="140" cy="140" r="92"  fill="none" stroke="url(#neon)" stroke-width="6" opacity=".65"/>
+      <g transform="translate(140,140)">
+        <text class="badge" text-anchor="middle" dominant-baseline="central"
+              fill="url(#chrome)" stroke="url(#neon)" stroke-width="8" filter="url(#innerGlow)">
+          JJ
+        </text>
+      </g>
+    </g>
+  </g>
 </svg>

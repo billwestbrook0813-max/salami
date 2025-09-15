@@ -10,4 +10,4 @@ services:
 
     envVars:
       - key: ODDS_API_KEY
-        sync: false              # set the value securely in Render dashboard
+        value: f1c06336685a4a20c89a57d3f56262
